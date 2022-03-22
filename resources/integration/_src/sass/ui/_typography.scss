@@ -1,0 +1,245 @@
+/* ==========================================================================
+    Custom fonts
+   ========================================================================== */
+
+@font-face {
+  font-display: swap;
+  font-family: "Dacia-Regular";
+  src:
+    url("fonts/daciablock-regular.woff2") format("woff2"),
+    url("../fonts/daciablock-regular.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Dacia-Bold";
+  src:
+    url("fonts/daciablock-bold.woff2") format("woff2"),
+    url("fonts/daciablock-bold.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Read-Bold";
+  src:
+    url("fonts/read-bold") format("woff2"),
+    url("fonts/read-bold.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Read-Regular";
+  src:
+    url("fonts/read-regular") format("woff2"),
+    url("fonts/read-regular.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Read-Medium";
+  src:
+    url("fonts/read-medium") format("woff2"),
+    url("fonts/read-medium.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Read-Light";
+  src:
+    url("fonts/read-light") format("woff2"),
+    url("fonts/read-read-light") format("woff");
+}
+
+$f-content:   arial, helvetica, "Liberation Sans", freesans, sans-serif;
+
+$f-dacia-regular: "Dacia-Regular", $f-content;
+$f-dacia-bold: "Dacia-Bold";
+$f-read-r: "Read-Regular", $f-content;
+$f-read-m: "Read-Medium", $f-content;
+$f-read-l: "Read-Light", $f-content;
+$f-read-b: "Read-Bold", $f-content;
+
+
+/* ==========================================================================
+    Default element styles
+   ========================================================================== */
+
+
+@font-face{
+    font-display: swap;
+    font-family:"Dacia-Regular";
+    src: url("fonts/daciablock-regular.woff2") format("woff2"),
+    url("fonts/daciablock-regular.woff") format("woff");
+}
+
+@font-face{
+    font-display: swap;
+    font-family:"Dacia-Bold";
+    src: url("fonts/daciablock-bold.woff2") format("woff2"),
+    url("fonts/daciablock-bold.woff") format("woff");
+}
+
+
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #333;
+}
+
+html {
+    font: 62.5% $f-content;
+    line-height: 1.4;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    -moz-font-smoothing: none;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ==============================
+    Typography
+   ============================== */
+/* "-like" classes should be used to maintain the semantically appropriate heading levels - NOT for use on non-headings */
+h1,
+.h1-like {
+
+
+}
+
+h2,
+.h2-like {
+
+}
+
+h3,
+.h3-like {
+
+}
+
+h4,
+.h4-like {
+
+}
+
+h5,
+.h5-like {
+
+}
+
+h6,
+.h6-like {
+
+}
+
+p,
+li {
+
+    line-height: 1.8;
+}
+
+li li,
+li p {
+    font-size: 1rem;
+}
+
+p {
+    margin: 0 0 2rem;
+}
+
+ul {
+    padding-left: 3rem;
+    margin: 0;
+    ol, ul {
+        margin: 0;
+        li {
+            margin: 0 0 1rem;
+        }
+    }
+}
+
+ol {
+    padding-left: 2rem;
+    ol, ul {
+        margin: 0;
+        li {
+            margin: 0 0 1rem;
+        }
+    }
+    li {
+        margin: 0 0 2rem;
+    }
+}
+
+ul li {
+    margin: 0 0 2rem;
+    list-style: none;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.nobullets {
+    list-style: none;
+    padding-left: 0;
+
+    li:before {
+        display: none;
+    }
+}
+
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #000;
+}
+
+blockquote {
+
+}
+
+
+/* ==============================
+    Other
+   ============================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+address {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+hr {
+    background: rgba(255,255,255,0.1);
+    border: 0 none;
+    margin: 2rem 0;
+    height: 0.1rem;
+}
+
+::-moz-selection {
+    background: #000;
+    color: #FFF;
+    text-shadow: none;
+}
+::selection {
+    background: #000;
+    color: #FFF;
+    text-shadow: none;
+}

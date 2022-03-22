@@ -1,0 +1,141 @@
+.cp-test {
+  background-color: white;
+  padding: 2rem;
+  width: auto;
+  height: auto;
+  left: 0px;
+  top: 0px;
+  @include teq-breakpoint($medium) {
+    padding: 10rem;
+  }
+  h1 {
+    font-family: "daciablock-bold.woff";
+    font-size: 2.8rem;
+    color: black;
+
+    @include teq-breakpoint($medium) {
+      font-size: 5rem;
+      padding-left: 10rem;
+    }
+  }
+
+  .column-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    @include teq-breakpoint($medium) {
+      flex-direction: row;
+      margin-left: 10rem;
+      margin-right: 10rem;
+    }
+  }
+
+  .card {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 1.6rem;
+
+    @include teq-breakpoint($medium) {
+      margin-bottom: 0;
+    }
+    .h2 {
+      font-family: "daciablock-bold.woff2";
+      font-size: 2.8rem;
+      color: white;
+      position: absolute;
+      bottom: 6rem;
+      left: 2rem;
+      z-index: 1;
+      @include teq-breakpoint($medium) {
+        font-size: 4.6rem;
+        bottom: 1rem;
+        left: 5.5rem;
+      }
+    }
+
+    .icon {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      bottom: 8rem;
+      width: 4rem;
+      height: 4rem;
+      float: right;
+      border-radius: 50%;
+      background-color: white;
+      font-size: 3rem;
+      margin-right: 4rem;
+      cursor: pointer;
+      @include teq-breakpoint($medium) {
+        display: none;
+      }
+    }
+
+    .text {
+      display: flex;
+      height: 30rem;
+      justify-content: space-between;
+      color: white;
+      font-family: "read-light.woff";
+      font-size: 1.6rem;
+      margin-top: 15rem;
+      margin-left: 3rem;
+      margin-right: 3rem;
+      margin-bottom: 3rem;
+      flex-direction: column;
+      text-align: left;
+
+      @include teq-breakpoint($medium) {
+        font-size: 2rem;
+        margin-top: 22rem;
+        margin-left: 6rem;
+        margin-right: 5rem;
+        margin-bottom: 5rem;
+      }
+    }
+    p {
+      line-height: 140%;
+      margin-bottom: 2rem;
+      @include teq-breakpoint($medium) {
+        line-height: 150%;
+        margin-bottom: 5rem;
+      }
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      .overlay {
+        opacity: 1;
+        padding: 2;
+      }
+
+      h2 {
+        top: 0;
+        margin-top: 8rem;
+        margin-left: 1rem;
+        margin-bottom: 40rem;
+      }
+      .icon {
+        display: none;
+      }
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color: rgba(100, 107, 83, 0.9);
+  }
+}

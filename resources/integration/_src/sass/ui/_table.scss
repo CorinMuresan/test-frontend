@@ -1,0 +1,67 @@
+/* ==============================
+    Tables
+   ============================== */
+thead,
+tfoot,
+tfoot tr {
+    border: 0 none;
+}
+
+table.teq-table {
+    width: 100%;
+}
+
+th,
+td {
+    font-size: 1.1rem;
+    font-family: $f-content;
+    padding: 1rem;
+    text-align: center;
+}
+
+th {
+    font-weight: bold;
+}
+
+
+/*
+ *  Table grid
+ */
+
+.teq-table {
+    @include teq-breakpoint($medium) {
+        display: table;
+        width: 100%;
+        table-layout:fixed;
+    }
+}
+
+.teq-table > .teq-col {
+    float: none;
+    @include teq-breakpoint($medium) {
+        display: table-cell;
+    }
+}
+
+.teq-table th,
+.teq-table td {
+    border: 1px solid #ececec;
+
+}
+
+.teq-table th {
+    background: #f7f7f7;
+}
+
+.teq-table tbody > tr:nth-child(even) > td {
+    background: #f7f7f7;
+}
+
+.teq-table tfoot td {
+    border: 0 none;
+    color: #777;
+    font-family: $f-content;
+    font-size: 1.1rem;
+    font-style: italic;
+    padding: 10px 0;
+}

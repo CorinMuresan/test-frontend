@@ -1,0 +1,129 @@
+//  Sassy Fluid Grid
+//  Version: 0.5
+//  Author: Hinerangi Courtenay - @sky_maiden
+//  Description: A mobile-first fluid grid generator, inspired by responsivegridsystem.com
+//  License: http://skymaiden.mit-license.org/2013
+//  Merci à Bérangère pour les classes 0 ! fr.linkedin.com/pub/bérangère-demogue/36/b87/919/
+
+// Usage:
+//      Include the setupFluidGrid() mixin once, and the generateGrid() mixin as many times as
+//      desired. Default settings can be overridden by overriding the variable values or
+//      the optional mixin parameters. Defaults to 12 columns, 2% gutters, a maximum container
+//      width of 980px, and a namespace of "sky".
+
+//      @include setupFluidGrid();
+//      @include generateFluidGrid();
+
+//      <div class="teq-container">
+//          <div class="teq-row">
+//              <div class="teq-col m-6-12 l-3-12">Mobile: 100%, Tablet: 50%, Desktop: 25%</div>
+//              <div class="teq-col m-6-12 l-3-12">Mobile: 100%, Tablet: 50%, Desktop: 25%</div>
+//              <div class="teq-col m-6-12 l-3-12">Mobile: 100%, Tablet: 50%, Desktop: 25%</div>
+//              <div class="teq-col m-6-12 l-3-12">Mobile: 100%, Tablet: 50%, Desktop: 25%</div>
+//          </div>
+//      </div>
+
+$cols: 12 !default;
+$gutter: 2 !default;
+$container: 980px !default;
+$gridNamespace: 'teq' !default;
+
+@mixin makeFluidCols($totalColumns: $cols, $gutterWidth: $gutter, $prefix: false, $offsets: false, $dtable: false) {
+    $columnWidth: (100 - ( $gutterWidth * ($totalColumns) ) ) / $totalColumns;
+
+    /* Columns */
+    .#{$gridNamespace}-col {
+        display: block;
+    }
+    @for $i from 1 through $totalColumns {
+        .#{$prefix}-#{$i}-#{$totalColumns} {
+            width: ( ($i * $columnWidth) + ($gutterWidth * ($i - 1)) ) + 0%;
+        }
+    }
+    @for $i from 1 through $totalColumns {
+        .#{$prefix}-dt-#{$i}-#{$totalColumns} {
+            width: ( $i * $columnWidth ) + 0%;
+        }
+    }
+    $none: 0;
+
+    .#{$prefix}-#{$none}-#{$totalColumns} {
+        display: none;
+    }
+
+    /* Offsets */
+    @if $offsets {
+        @for $i from 1 through $totalColumns - 1 {
+            .#{$gridNamespace}-row .#{$prefix}-offset-#{$i}-#{$totalColumns} {
+                margin-left: percentage(($i / $totalColumns)) + ($gutterWidth/2);
+            }
+        }
+    }
+}
+
+@mixin setupFluidGrid($maxContainer: $container, $gutterWidth: $gutter, $dtable: false) {
+/* ==========================================================================
+    Sassy Fluid Grid
+   ========================================================================== */
+    .#{$gridNamespace}-container {
+        margin: 0 auto;
+        max-width: $maxContainer;
+    }
+    .#{$gridNamespace}-row {
+        @if $dtable {
+            display: table;
+            width: 100%;
+        }
+        @else {
+            &:before,
+            &:after {
+                content: " ";
+                display: table;
+            }
+            &:after {
+                clear: both;
+            }
+            @include teq-breakpoint($large) {
+                margin: 0 (-($gutterWidth/2 + 0%));
+                *zoom: 1;
+            }
+        }
+    }
+    .#{$gridNamespace}-col {
+        float: left;
+        margin: 0 ($gutterWidth/2 + 0%);
+        min-height: 1px; // http://css-tricks.com/make-sure-columns-dont-collapse-horizontally/
+        width: (100 - $gutterWidth + 0%);
+        *clear: right;   /* fix ie7 percentage float problem */
+    }
+
+    .#{$gridNamespace}-dtcol {
+        display: table-cell;
+        min-height: 1px; // http://css-tricks.com/make-sure-columns-dont-collapse-horizontally/
+        width: (100 + 0%);
+    }
+}
+
+@mixin generateFluidGrid($numCols: $cols, $gutterWidth: $gutter, $offsets: true, $dtable: false) {
+/* ========================================
+    Columns for mobile+
+   ======================================== */
+    @include teq-breakpoint(0) {
+        @include makeFluidCols($numCols, $gutterWidth, $gridNamespace+'-s', $offsets, $dtable);
+    }
+
+/* ========================================
+    Columns for >= tablets (portrait)
+   ======================================== */
+    @include teq-breakpoint($medium) {
+        @include makeFluidCols($numCols, $gutterWidth, $gridNamespace+'-m', $offsets, $dtable);
+    }
+
+/* ========================================
+    Columns for >= tablets (landscape)
+   ======================================== */
+    @include teq-breakpoint($large) {
+        @include makeFluidCols($numCols, $gutterWidth, $gridNamespace+'-l', $offsets, $dtable);
+    }
+}
+

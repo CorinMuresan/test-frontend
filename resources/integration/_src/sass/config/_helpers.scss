@@ -1,0 +1,87 @@
+/* ==========================================================================
+    Helpers & Objects
+   ========================================================================== */
+
+/* ==============================
+    Helper classes
+   ============================== */
+
+
+/*
+ * Clearfix
+ */
+.clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+/*
+ *  Blocks
+ */
+.fl-right {
+    float: right;
+}
+.fl-left {
+    float: left;
+}
+
+
+/*
+ * Wordpress generated classes
+ */
+.alignnone,
+.aligncenter,
+.alignleft,
+.alignright {
+    display: block;
+}
+
+.wp-caption {
+    text-align: center; // center image for mobile
+    position: relative;
+    .wp-caption-text {
+       background: rgba(0,0,0,0.6);
+        bottom: 0;
+        color: #fff;
+        left: 0;
+        margin: 0;
+        padding: 5px 10px;
+        position: absolute;
+        right: 0;
+        text-align: left; // left align caption
+    }
+}
+
+@include teq-breakpoint($medium) {
+    .alignnone,
+    .aligncenter,
+    .alignleft,
+    .alignright {
+        margin: 5px auto;
+    }
+    .alignnone {
+        margin: 5px 20px 10px 0;
+    }
+    .aligncenter {
+        display: block;
+        margin: 5px auto;
+        text-align: center;
+    }
+    .alignright {
+        float:right;
+        margin: 5px 0 10px 20px;
+    }
+    .alignleft {
+        float: left;
+        margin: 5px 20px 10px 0;
+    }
+}
+
+

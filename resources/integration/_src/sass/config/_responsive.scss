@@ -1,0 +1,216 @@
+//-------------------- Breakpoints --------------------//
+
+$breakpoint-range-xsmall: (null, 640px) !default;   //iPhone 4/5 (P)
+$breakpoint-range-small: (641px, 960px) !default;   //iPhone 4 (L), iPad 2 (P), Galaxy S3 (P), Moto X (P)
+$breakpoint-range-medium: (961px, 1280px) !default; //iPhone 5 (L), iPad 2 (L), Nexus 5 (P), Galaxy S3 (L), Galaxy Note (P), HTC One (P), Moto X (L)
+$breakpoint-range-large: (1281px, 1680px) !default; //Laptops, Desktops, iPad 3/4 (P, L), Nexus 5 (L), Galaxy Note (L), HTC One (L)
+$breakpoint-range-xlarge: (1681px, null) !default;
+
+
+// Media query for minimum resolution
+@mixin if-min($min) {
+    @media only screen and (min-width: $min) {
+        @content;
+    }
+}
+
+// Media query for maximum resolution
+@mixin if-max($max) {
+    @media only screen and (max-width: $max) {
+        @content;
+    }
+}
+
+// Media query for between minimum and maximum resolution
+@mixin if-min-max($min, $max) {
+    @media only screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+// Media query for landscape orientation detection
+@mixin if-landscape {
+    @media only screen and (orientation: landscape) {
+        @content;
+    }
+}
+
+// Media query for portrait orientation detection
+@mixin if-portrait {
+    @media only screen and (orientation: portrait) {
+        @content;
+    }
+}
+
+// Media query for retina / HD displays
+@mixin if-retina {
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2) {
+        @content;
+    }
+}
+
+// Either support desktop-first or mobile-first responsive pattern
+@mixin do-responsive($desktop, $mobile) {
+    @if $responsive-design == "desktop" {
+        @if $desktop {
+            @include if-max($desktop) {
+                @content;
+            }
+        } @else {
+            @content;
+        }
+    } @else {
+        @if $mobile {
+            @include if-min($mobile) {
+                @content;
+            }
+        } @else {
+            @content;
+        }
+    }
+}
+
+//-------------------- Breakpoints --------------------//
+
+@mixin if-xlarge() {
+    @include do-responsive(nth($breakpoint-range-xlarge, 2), nth($breakpoint-range-xlarge, 1)) {
+        @content;
+    }
+}
+
+@mixin if-large() {
+    @include do-responsive(nth($breakpoint-range-large, 2), nth($breakpoint-range-large, 1)) {
+        @content;
+    }
+}
+
+@mixin if-medium() {
+    @include do-responsive(nth($breakpoint-range-medium, 2), nth($breakpoint-range-medium, 1)) {
+        @content;
+    }
+}
+
+@mixin if-small() {
+    @include do-responsive(nth($breakpoint-range-small, 2), nth($breakpoint-range-small, 1)) {
+        @content;
+    }
+}
+
+@mixin if-xsmall() {
+    @include do-responsive(nth($breakpoint-range-xsmall, 2), nth($breakpoint-range-xsmall, 1)) {
+        @content;
+    }
+}
+
+// Within 2 ranges
+@mixin in-range($range) {
+    @if type-of($range) != 'list' {
+        @warn "in-range() requires a list with a min and max value";
+    }
+
+    $min: nth($range, 1);
+    $max: nth($range, 2);
+
+    @if $min and $max {
+        @include if-min-max($min, $max) {
+            @content;
+        }
+
+    } @else if $min {
+        @include if-min($min) {
+            @content;
+        }
+
+    } @else if $max {
+        @include if-max($max) {
+            @content;
+        }
+    }
+}
+
+@mixin in-xlarge {
+    @include in-range($breakpoint-range-xlarge) {
+        @content;
+    }
+}
+
+@mixin in-large {
+    @include in-range($breakpoint-range-large) {
+        @content;
+    }
+}
+
+@mixin in-medium {
+    @include in-range($breakpoint-range-medium) {
+        @content;
+    }
+}
+
+@mixin in-small {
+    @include in-range($breakpoint-range-small) {
+        @content;
+    }
+}
+
+@mixin in-xsmall {
+    @include in-range($breakpoint-range-xsmall) {
+        @content;
+    }
+}
+
+// Use media queries and automatically generate specific css for ie7/ie8
+// Inspired by https://github.com/nex3/sass/issues/408#issuecomment-6086901
+
+$small:  30em !default; // ≈ 480px
+$medium: 48em !default; // ≈ 768px
+$large:  60em !default; // ≈ 960px
+$wide:   75em !default; // ≈ 1200px
+$grid:   71.25em !default; // ≈ 1140px
+
+$max-desktop: $large !default;
+
+$media-queries: true !default; // true by default
+
+@mixin teq-breakpoint($min-width: false, $max-width: false, $prefix: false) {
+    @if $media-queries {
+        @if $min-width {
+            @if $max-width {
+                @media all and (min-width: $min-width) and (max-width: $max-width) {
+                    @if $prefix {
+                        #{"." + $prefix} {
+                            @content;
+                        }
+                    } @else {
+                        @content;
+                    }
+                }
+            } @else {
+                @media all and (min-width: $min-width) {
+                    @if $prefix {
+                        #{"." + $prefix} {
+                            @content;
+                        }
+                    } @else {
+                        @content;
+                    }
+                }
+            }
+        } @else if $max-width {
+            @media all and (max-width: $max-width) {
+                @if $prefix {
+                    #{"." + $prefix} {
+                        @content;
+                    }
+                } @else {
+                    @content;
+                }
+            }
+        }
+    } @else if $min-width and $min-width <= $max-desktop and
+      (not $max-width or $max-width and $max-width >= $max-desktop) {
+        @content;
+    }
+}

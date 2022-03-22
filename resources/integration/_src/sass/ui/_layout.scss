@@ -1,0 +1,42 @@
+/* ==============================
+    Global
+   ============================== */
+html,
+body {
+     background : #FFF;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    scroll-behavior: smooth;
+}
+.global {
+    min-height: 100%;
+    overflow: hidden;
+    position: relative;
+    transition-duration: .6s;
+}
+
+.teq-container {
+    margin: 0 auto;
+    max-width: calc(100% - 4.8rem);
+    width: 100%;
+
+    @include teq-breakpoint($medium){
+        width: 56rem;
+    }
+    @include teq-breakpoint($large){
+        width: 96rem;
+    }
+    @include teq-breakpoint($wide){
+        width: 142.4rem;
+    }
+}

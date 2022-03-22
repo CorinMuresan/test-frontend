@@ -1,0 +1,30 @@
+/* ==========================================================================
+    Main styles
+   ========================================================================== */
+// CONFIGURATION
+@charset "UTF-8";
+@import "config/vars";
+@import "config/responsive";
+@import "config/helpers";
+@import "config/grid";
+
+// LIBRARIES / PLUGINS
+
+
+// PROJECT
+@import "ui/typography";
+@import "ui/anims";
+@import "ui/table";
+@import "ui/buttons";
+@import "ui/icons";
+@import "ui/forms";
+@import "ui/layout";
+
+
+
+// COMPONENTS
+
+@import "components/cp-simple-banner";
+@import "components/cp-test";
+
+@import "ui/print";

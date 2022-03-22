@@ -1,0 +1,765 @@
+/* ==========================================================================
+    Main styles
+   ========================================================================== */
+/* ==========================================================================
+    Helpers & Objects
+   ========================================================================== */
+/* ==============================
+    Helper classes
+   ============================== */
+/*
+ * Clearfix
+ */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/*
+ *  Blocks
+ */
+.fl-right {
+  float: right;
+}
+
+.fl-left {
+  float: left;
+}
+
+/*
+ * Wordpress generated classes
+ */
+.alignnone,
+.aligncenter,
+.alignleft,
+.alignright {
+  display: block;
+}
+
+.wp-caption {
+  text-align: center;
+  position: relative;
+}
+.wp-caption .wp-caption-text {
+  background: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  color: #fff;
+  left: 0;
+  margin: 0;
+  padding: 5px 10px;
+  position: absolute;
+  right: 0;
+  text-align: left;
+}
+
+@media all and (min-width: 48em) {
+  .alignnone,
+.aligncenter,
+.alignleft,
+.alignright {
+    margin: 5px auto;
+  }
+
+  .alignnone {
+    margin: 5px 20px 10px 0;
+  }
+
+  .aligncenter {
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+  }
+
+  .alignright {
+    float: right;
+    margin: 5px 0 10px 20px;
+  }
+
+  .alignleft {
+    float: left;
+    margin: 5px 20px 10px 0;
+  }
+}
+/* ==========================================================================
+    Custom fonts
+   ========================================================================== */
+@font-face {
+  font-display: swap;
+  font-family: "Dacia-Regular";
+  src: url("fonts/daciablock-regular.woff2") format("woff2"), url("../fonts/daciablock-regular.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Dacia-Bold";
+  src: url("fonts/daciablock-bold.woff2") format("woff2"), url("fonts/daciablock-bold.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Read-Bold";
+  src: url("fonts/read-bold") format("woff2"), url("fonts/read-bold.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Read-Regular";
+  src: url("fonts/read-regular") format("woff2"), url("fonts/read-regular.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Read-Medium";
+  src: url("fonts/read-medium") format("woff2"), url("fonts/read-medium.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Read-Light";
+  src: url("fonts/read-light") format("woff2"), url("fonts/read-read-light") format("woff");
+}
+/* ==========================================================================
+    Default element styles
+   ========================================================================== */
+@font-face {
+  font-display: swap;
+  font-family: "Dacia-Regular";
+  src: url("fonts/daciablock-regular.woff2") format("woff2"), url("fonts/daciablock-regular.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Dacia-Bold";
+  src: url("fonts/daciablock-bold.woff2") format("woff2"), url("fonts/daciablock-bold.woff") format("woff");
+}
+html,
+button,
+input,
+select,
+textarea {
+  color: #333;
+}
+
+html {
+  font: 62.5% arial, helvetica, "Liberation Sans", freesans, sans-serif;
+  line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  -moz-font-smoothing: none;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==============================
+    Typography
+   ============================== */
+/* "-like" classes should be used to maintain the semantically appropriate heading levels - NOT for use on non-headings */
+p,
+li {
+  line-height: 1.8;
+}
+
+li li,
+li p {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 2rem;
+}
+
+ul {
+  padding-left: 3rem;
+  margin: 0;
+}
+ul ol, ul ul {
+  margin: 0;
+}
+ul ol li, ul ul li {
+  margin: 0 0 1rem;
+}
+
+ol {
+  padding-left: 2rem;
+}
+ol ol, ol ul {
+  margin: 0;
+}
+ol ol li, ol ul li {
+  margin: 0 0 1rem;
+}
+ol li {
+  margin: 0 0 2rem;
+}
+
+ul li {
+  margin: 0 0 2rem;
+  list-style: none;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.nobullets {
+  list-style: none;
+  padding-left: 0;
+}
+.nobullets li:before {
+  display: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #000;
+}
+
+/* ==============================
+    Other
+   ============================== */
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+address {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+hr {
+  background: rgba(255, 255, 255, 0.1);
+  border: 0 none;
+  margin: 2rem 0;
+  height: 0.1rem;
+}
+
+::-moz-selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none;
+}
+
+::selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none;
+}
+
+/* ==============================
+    Tables
+   ============================== */
+thead,
+tfoot,
+tfoot tr {
+  border: 0 none;
+}
+
+table.teq-table {
+  width: 100%;
+}
+
+th,
+td {
+  font-size: 1.1rem;
+  font-family: arial, helvetica, "Liberation Sans", freesans, sans-serif;
+  padding: 1rem;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+}
+
+/*
+ *  Table grid
+ */
+@media all and (min-width: 48em) {
+  .teq-table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+}
+
+.teq-table > .teq-col {
+  float: none;
+}
+@media all and (min-width: 48em) {
+  .teq-table > .teq-col {
+    display: table-cell;
+  }
+}
+
+.teq-table th,
+.teq-table td {
+  border: 1px solid #ececec;
+}
+
+.teq-table th {
+  background: #f7f7f7;
+}
+
+.teq-table tbody > tr:nth-child(even) > td {
+  background: #f7f7f7;
+}
+
+.teq-table tfoot td {
+  border: 0 none;
+  color: #777;
+  font-family: arial, helvetica, "Liberation Sans", freesans, sans-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.woff2") format("woff2"), url("fonts/icomoon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^=icon-]:before,
+[class*=icon-]:before {
+  font-family: "icomoon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  position: relative;
+  speak: none;
+  text-transform: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: 0.5s ease;
+}
+
+/* ==============================
+    Forms
+   ============================== */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+::-webkit-input-placeholder {
+  color: #555;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #555;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #555;
+}
+
+:-ms-input-placeholder {
+  color: #555;
+}
+
+.placeholder {
+  color: #555;
+}
+
+:invalid {
+  box-shadow: none;
+}
+
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+::-ms-clear {
+  display: none;
+}
+
+/* ==============================
+    Global
+   ============================== */
+html,
+body {
+  background: #FFF;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.global {
+  min-height: 100%;
+  overflow: hidden;
+  position: relative;
+  transition-duration: 0.6s;
+}
+
+.teq-container {
+  margin: 0 auto;
+  max-width: calc(100% - 4.8rem);
+  width: 100%;
+}
+@media all and (min-width: 48em) {
+  .teq-container {
+    width: 56rem;
+  }
+}
+@media all and (min-width: 60em) {
+  .teq-container {
+    width: 96rem;
+  }
+}
+@media all and (min-width: 75em) {
+  .teq-container {
+    width: 142.4rem;
+  }
+}
+
+.cp-simple-banner {
+  margin-bottom: 8rem;
+  overflow: hidden;
+  position: relative;
+}
+@media all and (min-width: 60em) {
+  .cp-simple-banner {
+    margin-bottom: 16rem;
+  }
+}
+.cp-simple-banner .bg-image {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+.cp-simple-banner .bg-image img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.cp-simple-banner .teq-container {
+  box-sizing: border-box;
+  min-height: calc(100vh - 6rem);
+  padding: 14rem 0 10rem;
+  position: relative;
+}
+@media all and (min-width: 60em) {
+  .cp-simple-banner .teq-container {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    min-height: calc(100vh - 12.2rem);
+    padding: 18rem 0 15.2rem;
+  }
+}
+.cp-simple-banner h1 {
+  color: #000;
+  font-family: "Dacia-Bold";
+  font-size: 3.4rem;
+  line-height: 5.2rem;
+  margin: 0 0 5.4rem;
+}
+@media all and (min-width: 60em) {
+  .cp-simple-banner h1 {
+    font-size: 6.4rem;
+    line-height: 6.6rem;
+    margin: 0;
+    width: 75%;
+  }
+}
+.cp-simple-banner h1 strong {
+  color: #646b52;
+  font-weight: normal;
+}
+.cp-simple-banner .complementary-text {
+  font-family: "Dacia-Regular", arial, helvetica, "Liberation Sans", freesans, sans-serif;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+@media all and (min-width: 60em) {
+  .cp-simple-banner .complementary-text {
+    font-size: 1.8rem;
+    width: 16.6666666667%;
+  }
+}
+.cp-simple-banner .complementary-text span {
+  display: block;
+}
+
+.cp-test {
+  background-color: white;
+  padding: 2rem;
+  width: auto;
+  height: auto;
+  left: 0px;
+  top: 0px;
+}
+@media all and (min-width: 48em) {
+  .cp-test {
+    padding: 10rem;
+  }
+}
+.cp-test h1 {
+  font-family: "daciablock-bold.woff";
+  font-size: 2.8rem;
+  color: black;
+}
+@media all and (min-width: 48em) {
+  .cp-test h1 {
+    font-size: 5rem;
+    padding-left: 10rem;
+  }
+}
+.cp-test .column-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+}
+@media all and (min-width: 48em) {
+  .cp-test .column-box {
+    flex-direction: row;
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+}
+.cp-test .card {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 1.6rem;
+}
+@media all and (min-width: 48em) {
+  .cp-test .card {
+    margin-bottom: 0;
+  }
+}
+.cp-test .card .h2 {
+  font-family: "daciablock-bold.woff2";
+  font-size: 2.8rem;
+  color: white;
+  position: absolute;
+  bottom: 6rem;
+  left: 2rem;
+  z-index: 1;
+}
+@media all and (min-width: 48em) {
+  .cp-test .card .h2 {
+    font-size: 4.6rem;
+    bottom: 1rem;
+    left: 5.5rem;
+  }
+}
+.cp-test .card .icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  bottom: 8rem;
+  width: 4rem;
+  height: 4rem;
+  float: right;
+  border-radius: 50%;
+  background-color: white;
+  font-size: 3rem;
+  margin-right: 4rem;
+  cursor: pointer;
+}
+@media all and (min-width: 48em) {
+  .cp-test .card .icon {
+    display: none;
+  }
+}
+.cp-test .card .text {
+  display: flex;
+  height: 30rem;
+  justify-content: space-between;
+  color: white;
+  font-family: "read-light.woff";
+  font-size: 1.6rem;
+  margin-top: 15rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 3rem;
+  flex-direction: column;
+  text-align: left;
+}
+@media all and (min-width: 48em) {
+  .cp-test .card .text {
+    font-size: 2rem;
+    margin-top: 22rem;
+    margin-left: 6rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+  }
+}
+.cp-test .card p {
+  line-height: 140%;
+  margin-bottom: 2rem;
+}
+@media all and (min-width: 48em) {
+  .cp-test .card p {
+    line-height: 150%;
+    margin-bottom: 5rem;
+  }
+}
+.cp-test .card .image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cp-test .card:hover .overlay {
+  opacity: 1;
+  padding: 2;
+}
+.cp-test .card:hover h2 {
+  top: 0;
+  margin-top: 8rem;
+  margin-left: 1rem;
+  margin-bottom: 40rem;
+}
+.cp-test .card:hover .icon {
+  display: none;
+}
+.cp-test .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: rgba(100, 107, 83, 0.9);
+}
+
+/* ==========================================================================
+    Print
+   ========================================================================== */
+@media print {
+  /* 
+  * Boilerplate print styles
+  */
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* Don't show links for logo, images, or javascript/internal links */
+  .logo a:after,
+.ir a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+
+  tr,
+img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+  p,
+h2,
+h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+h3 {
+    page-break-after: avoid;
+  }
+
+  img-left .logo,
+.logo img {
+    float: none;
+    height: 67px;
+  }
+
+  .logo a {
+    display: block;
+  }
+
+  .page {
+    margin: 0;
+  }
+
+  .layout-2col:after,
+.sidebar,
+.bottom,
+.header:before,
+.slider,
+.nav-tactile,
+.menu,
+.fu,
+.footer {
+    display: none !important;
+  }
+
+  .layout-2col > .primary {
+    float: none;
+    padding-right: 0;
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=styles.css.map*/

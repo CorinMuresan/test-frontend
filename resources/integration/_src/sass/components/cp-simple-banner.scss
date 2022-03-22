@@ -1,0 +1,74 @@
+.cp-simple-banner {
+  margin-bottom: 8rem;
+  overflow: hidden;
+  position: relative;
+
+  @include teq-breakpoint($large) {
+    margin-bottom: 16rem;
+  }
+
+  .bg-image {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .teq-container {
+    box-sizing: border-box;
+    min-height: calc(100vh - 6rem);
+    padding: 14rem 0 10rem;
+    position: relative;
+
+    @include teq-breakpoint($large) {
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      min-height: calc(100vh - 12.2rem);
+      padding: 18rem 0 15.2rem;
+    }
+  }
+
+  h1 {
+    color: #000;
+    font-family: $f-dacia-bold;
+    font-size: 3.4rem;
+    line-height: 5.2rem;
+    margin: 0 0 5.4rem;
+
+    @include teq-breakpoint($large) {
+      font-size: 6.4rem;
+      line-height: 6.6rem;
+      margin: 0;
+      width: calc(100% / 12 * 9);
+    }
+
+    strong {
+      color: $color-primary;
+      font-weight: normal;
+    }
+  }
+
+  .complementary-text {
+    font-family: $f-dacia-regular;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+
+    @include teq-breakpoint($large) {
+      font-size: 1.8rem;
+      width: calc(100% / 12 * 2);
+    }
+
+    span {
+      display: block;
+    }
+  }
+}

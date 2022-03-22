@@ -1,0 +1,38 @@
+/* ==============================
+    Forms
+   ============================== */
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+textarea {
+    resize: vertical;
+}
+::-webkit-input-placeholder {
+    color: #555;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #555;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #555;
+}
+:-ms-input-placeholder {
+    color: #555;
+}
+.placeholder {
+    color: #555;
+}
+:invalid {
+    box-shadow: none;
+}
+:-moz-submit-invalid {
+    box-shadow: none;
+}
+:-moz-ui-invalid {
+    box-shadow:none;
+}
+::-ms-clear {
+    display: none;
+}
